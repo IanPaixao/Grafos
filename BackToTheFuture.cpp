@@ -171,3 +171,8 @@ int main()
 
 	return 0;
 } 
+
+/**
+Code is incomplete whats is missing is a way to delete the shortest path found by 
+Dijkstra function  in order to proceed with the resolution of the problem.
+**/
