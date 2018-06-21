@@ -1,0 +1,93 @@
+Python 3.6.1 (default, Dec 2015, 13:05:11)
+[GCC 4.8.2] on linux
+   import networkx as nx
+
+Repl.it: Installing fresh packages
+Repl.it: networks
+
+Repl.it: package installation success
+
+  g = nx.Graph()
+   g.add_node(1)
+   g.add_node(2)
+   g.nodes()
+=> NodeView((1, 2))
+   g.add_node('a')
+   g.nodes()
+=> NodeView((1, 2, 'a'))
+ g.add_edge(1,2)
+   g.add_edge('a',2)
+   g.number_of_nodes()
+=> 3
+   g.number_of_edges()
+=> 2
+   g.edges()
+=> EdgeView([(1, 2), (2, 'a')])
+   g.degree(2)
+=> 2
+    g.add_node(3, nome='Ian')
+
+g.add_edge(1,2,weight=4.0,cor ='branco')
+   
+   g[1][2]
+   
+=> {'weight': 4.0, 'cor': 'branco'}
+
+  g[1][2]['cor']
+   
+=> 'branco'
+   
+   for node in g.node(): 
+..   print ( node, g.degree(node))
+   
+1 1
+2 2
+a 1
+3 0
+   
+  for n1,n2,attr in g.edges(data=True): 
+..   print (n1,n2,attr['cor'])
+   
+1 2 branco
+Traceback (most recent call last):
+  File "python", line 2, in <module>
+KeyError: 'cor'
+   
+  for n1,n2,attr in g.edges(data=True): 
+..   print (n1,n2,attr)
+   
+1 2 {'weight': 4.0, 'cor': 'branco'}
+2 a {}
+   
+   for n1,n2,attr in g.edges(data=True): 
+..   if(attr['cor'] != ""):print(n1,n2,attr)
+   
+1 2 {'weight': 4.0, 'cor': 'branco'}
+Traceback (most recent call last):
+  File "python", line 2, in <module>
+KeyError: 'cor'
+   
+   for n1,n2,attr in g.edges(data=True): 
+..   if(attr['cor'] != "preto"):print(n1,n2,attr)
+   
+1 2 {'weight': 4.0, 'cor': 'branco'}
+Traceback (most recent call last):
+  File "python", line 2, in <module>
+KeyError: 'cor'
+   
+  g.edges.data('cor')
+   
+=> EdgeDataView([(1, 2, 'branco'), (2, 'a', None)])
+   
+ g.edges.data('weight')
+   
+=> EdgeDataView([(1, 2, 4.0), (2, 'a', None)])
+   
+  g['a'][2]['weight']=10
+   
+   g.edges.data('weight')
+   
+=> EdgeDataView([(1, 2, 4.0), (2, 'a', 10)])
+   
+	terminal python questao.py < ....in ......  
+   
